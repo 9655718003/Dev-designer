@@ -79,24 +79,22 @@ footer{background:#30283f;color:#eee8f7;padding:38px 22px}.foot{max-width:1180px
 </section>
 <div class="benefits"><div class="benefit-grid"><div><span>🚚</span>Shipping details shared on order</div><div><span>💜</span>Carefully selected styles</div><div><span>💬</span>Easy WhatsApp ordering</div></div></div>
 </main>
-<footer id="contact"><div class="foot"><div><div class="brand" style="color:#fff">DEV DESIGNERS</div><p>Your Style · Your Beauty<br>Women's fashion and kidswear.</p></div><div><b>Contact & Orders</b><p>WhatsApp: +91 90870 18003<br>UPI / GPay / PhonePe payment details will be shared during checkout.</p></div><div><b>Customer Support</b><p>For size, availability, delivery and payment questions,<br>message us on WhatsApp.</p></div></div></footer>
+<footer id="contact"><div class="foot"><div><div class="brand" style="color:#fff">DEV DESIGNERS</div><p>Your Style · Your Beauty<br>Women's fashion and kidswear.</p></div><div><b>Contact & Orders</b><p>WhatsApp: +91 90870 18003<br>UPI / GPay / PhonePe payment details will be shared during checkout.</p></div><div><b>Store Admin</b><p><a href="admin.html" style="color:#e9ddff;text-decoration:underline">Open product manager</a></p></div><div><b>Customer Support</b><p>For size, availability, delivery and payment questions,<br>message us on WhatsApp.</p></div></div></footer>
 <a class="wa" href="https://wa.me/919087018003?text=வணக்கம்%20DEV%20DESIGNERS,%20ஆடைகள்%20பற்றி%20விவரம்%20வேண்டும்." target="_blank" rel="noopener">WhatsApp Order</a>
 <aside class="cart-panel" id="cartPanel"><div class="cart-head"><h2>Your Cart</h2><button class="close" onclick="toggleCart()">✕</button></div><div id="cartItems"><p class="note">Your cart is empty.</p></div><div id="cartTotal" style="font-weight:800;margin:18px 0"></div><button class="btn" style="width:100%" onclick="checkout()">ORDER ON WHATSAPP</button><p class="note">This starter store sends your selected items to the store via WhatsApp. Online UPI collection can be enabled after adding the business UPI ID and payment gateway details.</p></aside>
 <script>
-const products=[
-{name:"Designer Sarees Collection",cat:"புடவைகள்",price:1350,image:"sarees.png"},
-{name:"Beautiful Kurtis Collection",cat:"குர்த்தி",price:399,image:"kurtis.png"},
-{name:"Chudithar Material Collection",cat:"சுடிதார் மெட்டீரியல்",price:999,image:"chudithar-material.png"}
-];
+let products=[];
 let cart=[];
 const grid=document.getElementById('productGrid');
-function render(items=products){grid.innerHTML=items.map((p)=>`<article class="product"><div class="product-art"><img src="${p.image}" alt="${p.name}"></div><div class="product-info"><h3>${p.name}</h3><div class="price">₹${p.price.toLocaleString('en-IN')}</div><div class="meta">${p.cat}</div><button class="add" onclick="addToCart('${p.name.replace(/'/g,"\\'")}')">ADD TO CART</button></div></article>`).join('')}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(items=products){grid.innerHTML=items.map((p)=>`<article class="product"><div class="product-art"><img src="${esc(p.image)}" alt="${esc(p.name)}"></div><div class="product-info"><h3>${esc(p.name)}</h3><div class="price">₹${Number(p.price).toLocaleString('en-IN')}</div><div class="meta">${esc(p.cat)}</div><button class="add" onclick="addToCartById('${esc(p.id)}')">ADD TO CART</button></div></article>`).join('')}
+function addToCartById(id){const p=products.find(x=>x.id===id);if(!p)return;const old=cart.find(x=>x.id===id);if(old)old.qty++;else cart.push({...p,qty:1});updateCart();document.getElementById('cartPanel').classList.add('open')}
+async function loadProducts(){try{const r=await fetch('products.json?'+Date.now());if(!r.ok)throw new Error('products.json not found');products=await r.json();render()}catch(e){grid.innerHTML='<p>பொருட்களை ஏற்ற முடியவில்லை. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.</p>'}}
 function filterProducts(cat,el){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));el.classList.add('active');render(cat==='அனைத்தும்'?products:products.filter(p=>p.cat===cat))}
 function choose(cat){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));const b=[...document.querySelectorAll('.filter')].find(x=>x.textContent.trim()===cat);if(b)b.classList.add('active');render(products.filter(p=>p.cat===cat));document.getElementById('products').scrollIntoView({behavior:'smooth'})}
-function addToCart(name){const p=products.find(x=>x.name===name);const old=cart.find(x=>x.name===name);if(old)old.qty++;else cart.push({...p,qty:1});updateCart();document.getElementById('cartPanel').classList.add('open')}
 function updateCart(){document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById('cartItems').innerHTML=cart.length?cart.map(x=>`<div class="cart-line"><span>${x.name}<br><small>₹${x.price} × ${x.qty}</small></span><b>₹${(x.price*x.qty).toLocaleString('en-IN')}</b></div>`).join(''):'<p class="note">Your cart is empty.</p>';document.getElementById('cartTotal').textContent=cart.length?'Total: ₹'+cart.reduce((s,x)=>s+x.price*x.qty,0).toLocaleString('en-IN'):''}
 function toggleCart(){document.getElementById('cartPanel').classList.toggle('open')}
 function checkout(){if(!cart.length){alert('Please add a product first.');return}let lines=cart.map(x=>`${x.name} x ${x.qty} = ₹${x.price*x.qty}`).join('\n');let total=cart.reduce((s,x)=>s+x.price*x.qty,0);let msg=`வணக்கம் DEV DESIGNERS! நான் இந்தப் பொருட்களை ஆர்டர் செய்ய விரும்புகிறேன்:\n${lines}\nமொத்தம்: ₹${total}\nஅளவு, கிடைக்கும் நிலை, டெலிவரி மற்றும் UPI payment விவரங்களைத் தெரிவிக்கவும்.`;window.open('https://wa.me/919087018003?text='+encodeURIComponent(msg),'_blank')}
-render();
+loadProducts();
 </script>
 </body></html>

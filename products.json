@@ -1,0 +1,23 @@
+[
+  {
+    "id": "saree-001",
+    "name": "Designer Sarees Collection",
+    "cat": "புடவைகள்",
+    "price": 1350,
+    "image": "sarees.png"
+  },
+  {
+    "id": "kurti-001",
+    "name": "Beautiful Kurtis Collection",
+    "cat": "குர்த்தி",
+    "price": 399,
+    "image": "kurtis.png"
+  },
+  {
+    "id": "material-001",
+    "name": "Chudithar Material Collection",
+    "cat": "சுடிதார் மெட்டீரியல்",
+    "price": 999,
+    "image": "chudithar-material.png"
+  }
+]
