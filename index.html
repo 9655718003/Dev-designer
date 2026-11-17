@@ -81,7 +81,9 @@ footer{background:#30283f;color:#eee8f7;padding:38px 22px}.foot{max-width:1180px
 </main>
 <footer id="contact"><div class="foot"><div><div class="brand" style="color:#fff">DEV DESIGNERS</div><p>Your Style · Your Beauty<br>Women's fashion and kidswear.</p></div><div><b>Contact & Orders</b><p>WhatsApp: +91 90870 18003<br>UPI / GPay / PhonePe payment details will be shared during checkout.</p></div><div><b>Store Admin</b><p><a href="admin.html" style="color:#e9ddff;text-decoration:underline">Open product manager</a></p></div><div><b>Customer Support</b><p>For size, availability, delivery and payment questions,<br>message us on WhatsApp.</p></div></div></footer>
 <a class="wa" href="https://wa.me/919087018003?text=வணக்கம்%20DEV%20DESIGNERS,%20ஆடைகள்%20பற்றி%20விவரம்%20வேண்டும்." target="_blank" rel="noopener">WhatsApp Order</a>
-<aside class="cart-panel" id="cartPanel"><div class="cart-head"><h2>Your Cart</h2><button class="close" onclick="toggleCart()">✕</button></div><div id="cartItems"><p class="note">Your cart is empty.</p></div><div id="cartTotal" style="font-weight:800;margin:18px 0"></div><button class="btn" style="width:100%" onclick="checkout()">ORDER ON WHATSAPP</button><p class="note">This starter store sends your selected items to the store via WhatsApp. Online UPI collection can be enabled after adding the business UPI ID and payment gateway details.</p></aside>
+<aside class="cart-panel" id="cartPanel"><div class="cart-head"><h2>Your Cart</h2><button class="close" onclick="toggleCart()">✕</button></div><div id="cartItems"><p class="note">Your cart is empty.</p></div><div id="cartTotal" style="font-weight:800;margin:18px 0"></div><button class="btn" style="width:100%;background:#198754" onclick="payWithUPI()">PAY NOW · UPI / GPay / PhonePe</button>
+<button class="btn light" style="width:100%;margin-top:9px" onclick="checkout()">SEND ORDER ON WHATSAPP</button>
+<p class="note">UPI ID: sarmigoutham0-2@okaxis<br>பணம் செலுத்திய பிறகு WhatsApp-ல் ஆர்டர் விவரங்களை அனுப்பவும். பணம் வந்ததை கடை உரிமையாளர் வங்கி செயலியில் சரிபார்ப்பார்.</p></aside>
 <script>
 let products=[];
 let cart=[];
@@ -94,7 +96,20 @@ function filterProducts(cat,el){document.querySelectorAll('.filter').forEach(x=>
 function choose(cat){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));const b=[...document.querySelectorAll('.filter')].find(x=>x.textContent.trim()===cat);if(b)b.classList.add('active');render(products.filter(p=>p.cat===cat));document.getElementById('products').scrollIntoView({behavior:'smooth'})}
 function updateCart(){document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById('cartItems').innerHTML=cart.length?cart.map(x=>`<div class="cart-line"><span>${x.name}<br><small>₹${x.price} × ${x.qty}</small></span><b>₹${(x.price*x.qty).toLocaleString('en-IN')}</b></div>`).join(''):'<p class="note">Your cart is empty.</p>';document.getElementById('cartTotal').textContent=cart.length?'Total: ₹'+cart.reduce((s,x)=>s+x.price*x.qty,0).toLocaleString('en-IN'):''}
 function toggleCart(){document.getElementById('cartPanel').classList.toggle('open')}
-function checkout(){if(!cart.length){alert('Please add a product first.');return}let lines=cart.map(x=>`${x.name} x ${x.qty} = ₹${x.price*x.qty}`).join('\n');let total=cart.reduce((s,x)=>s+x.price*x.qty,0);let msg=`வணக்கம் DEV DESIGNERS! நான் இந்தப் பொருட்களை ஆர்டர் செய்ய விரும்புகிறேன்:\n${lines}\nமொத்தம்: ₹${total}\nஅளவு, கிடைக்கும் நிலை, டெலிவரி மற்றும் UPI payment விவரங்களைத் தெரிவிக்கவும்.`;window.open('https://wa.me/919087018003?text='+encodeURIComponent(msg),'_blank')}
+function cartTotalAmount(){return cart.reduce((s,x)=>s+x.price*x.qty,0)}
+function cartOrderLines(){return cart.map(x=>`${x.name} x ${x.qty} = ₹${x.price*x.qty}`).join('\n')}
+function payWithUPI(){
+  if(!cart.length){alert('Please add a product first.');return}
+  const total=cartTotalAmount();
+  const params=new URLSearchParams({pa:'sarmigoutham0-2@okaxis',pn:'DEV DESIGNERS',am:String(total),cu:'INR',tn:'DEV DESIGNERS order payment'});
+  window.location.href='upi://pay?'+params.toString();
+}
+function checkout(){
+  if(!cart.length){alert('Please add a product first.');return}
+  const lines=cartOrderLines(),total=cartTotalAmount();
+  const msg=`வணக்கம் DEV DESIGNERS! நான் இந்தப் பொருட்களை ஆர்டர் செய்ய விரும்புகிறேன்:\n${lines}\nமொத்தம்: ₹${total}\nUPI ID: sarmigoutham0-2@okaxis\nUPI மூலம் பணம் செலுத்திய விவரத்தைச் சரிபார்த்து ஆர்டரை உறுதிப்படுத்தவும்.`;
+  window.open('https://wa.me/919087018003?text='+encodeURIComponent(msg),'_blank')
+}
 loadProducts();
 </script>
 </body></html>
