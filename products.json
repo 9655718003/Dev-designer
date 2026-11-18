@@ -26,5 +26,12 @@
     "cat": "சுடிதார் மெட்டீரியல்",
     "price": 999,
     "image": "images/cotton-rayon-1794980741953.jpg"
+  },
+  {
+    "id": "product-1794980807247",
+    "name": "Pure Cotton",
+    "cat": "சுடிதார் மெட்டீரியல்",
+    "price": 999,
+    "image": "images/pure-cotton-1794980802699.jpg"
   }
 ]
