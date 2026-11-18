@@ -68,5 +68,12 @@
     "cat": "குர்த்தி",
     "price": 399,
     "image": "images/tops-1794981160255.jpg"
+  },
+  {
+    "id": "product-1794981225458",
+    "name": "Tops",
+    "cat": "குர்த்தி",
+    "price": 399,
+    "image": "images/tops-1794981221184.jpg"
   }
 ]
