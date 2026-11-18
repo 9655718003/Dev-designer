@@ -75,5 +75,12 @@
     "cat": "குர்த்தி",
     "price": 399,
     "image": "images/tops-1794981221184.jpg"
+  },
+  {
+    "id": "product-1794981321437",
+    "name": "Fancy sarees",
+    "cat": "புடவைகள்",
+    "price": 1350,
+    "image": "images/fancy-sarees-1794981317701.jpg"
   }
 ]
