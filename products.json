@@ -40,5 +40,12 @@
     "cat": "சுடிதார் மெட்டீரியல்",
     "price": 999,
     "image": "images/rayon-1794980862170.jpg"
+  },
+  {
+    "id": "product-1794980937910",
+    "name": "Royon",
+    "cat": "சுடிதார் மெட்டீரியல்",
+    "price": 999,
+    "image": "images/royon-1794980934007.jpg"
   }
 ]
