@@ -19,5 +19,12 @@
     "cat": "சுடிதார் மெட்டீரியல்",
     "price": 999,
     "image": "chudithar-material.png"
+  },
+  {
+    "id": "product-1794980745967",
+    "name": "Cotton Rayon",
+    "cat": "சுடிதார் மெட்டீரியல்",
+    "price": 999,
+    "image": "images/cotton-rayon-1794980741953.jpg"
   }
 ]
