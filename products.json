@@ -47,5 +47,12 @@
     "cat": "சுடிதார் மெட்டீரியல்",
     "price": 999,
     "image": "images/royon-1794980934007.jpg"
+  },
+  {
+    "id": "product-1794981003540",
+    "name": "Amberla with shwal",
+    "cat": "குர்த்தி",
+    "price": 1200,
+    "image": "images/amberla-with-shwal-1794980999269.jpg"
   }
 ]
