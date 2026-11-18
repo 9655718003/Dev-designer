@@ -82,5 +82,12 @@
     "cat": "புடவைகள்",
     "price": 1350,
     "image": "images/fancy-sarees-1794981317701.jpg"
+  },
+  {
+    "id": "product-1794981477166",
+    "name": "Fancy sarees",
+    "cat": "புடவைகள்",
+    "price": 1299,
+    "image": "images/fancy-sarees-1794981472707.jpg"
   }
 ]
