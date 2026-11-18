@@ -61,5 +61,12 @@
     "cat": "குர்த்தி",
     "price": 850,
     "image": "images/amberla-tops-1794981082274.jpg"
+  },
+  {
+    "id": "product-1794981164294",
+    "name": "Tops",
+    "cat": "குர்த்தி",
+    "price": 399,
+    "image": "images/tops-1794981160255.jpg"
   }
 ]
