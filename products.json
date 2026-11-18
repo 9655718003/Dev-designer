@@ -54,5 +54,12 @@
     "cat": "குர்த்தி",
     "price": 1200,
     "image": "images/amberla-with-shwal-1794980999269.jpg"
+  },
+  {
+    "id": "product-1794981086450",
+    "name": "Amberla tops",
+    "cat": "குர்த்தி",
+    "price": 850,
+    "image": "images/amberla-tops-1794981082274.jpg"
   }
 ]
