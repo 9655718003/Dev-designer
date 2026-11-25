@@ -97,4 +97,25 @@
     "price": 399,
     "image": "images/tops-1794981711681.jpg"
   }
-]
+,
+{
+  "id": "veshti-001",
+  "name": "White Veshti & Thundu",
+  "cat": "வேஷ்டி & துண்டு",
+  "price": 0,
+  "image": "images/white-veshti.jpg"
+},
+{
+  "id": "veshti-002",
+  "name": "Black Ayyappa Veshti & Thundu",
+  "cat": "வேஷ்டி & துண்டு",
+  "price": 0,
+  "image": "images/black-veshti.jpg"
+},
+{
+  "id": "veshti-003",
+  "name": "Kaavi Veshti & Thundu",
+  "cat": "வேஷ்டி & துண்டு",
+  "price": 0,
+  "image": "images/kaavi-veshti.jpg"
+}]
