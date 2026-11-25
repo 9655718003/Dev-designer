@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ta"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DEV DESIGNER | Women's Fashion</title>
+<style>
+:root{--purple:#32164f;--deep:#211033;--gold:#d8b56d;--cream:#fffaf2;--ink:#261b2d;--muted:#766b7b}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,"Noto Sans Tamil",sans-serif}
+.top{background:var(--deep);color:#f5e5c2;text-align:center;padding:9px;font-size:12px;letter-spacing:.08em}
+header{background:#fff;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;gap:15px;flex-wrap:wrap}
+.logo{font: bold 25px Georgia,serif;letter-spacing:.12em;color:var(--purple)}.logo small{display:block;font:10px Arial;letter-spacing:.25em;color:#9b7a3f;margin-top:4px}
+nav{display:flex;gap:20px;font-size:13px}a{color:inherit;text-decoration:none}
+.hero{margin:22px auto 0;max-width:1250px;padding:65px 8%;color:white;background:linear-gradient(110deg,#241236,#55336d);min-height:300px;display:flex;align-items:center}
+.hero small{color:var(--gold);letter-spacing:.2em}h1{font:clamp(38px,6vw,64px) Georgia,serif;margin:14px 0}.hero p{line-height:1.8;color:#eee;max-width:520px}
+.btn{display:inline-block;background:var(--gold);color:#271638;padding:13px 22px;margin-top:12px;font-weight:bold;font-size:12px;letter-spacing:.08em}
+main{max-width:1200px;margin:55px auto;padding:0 20px}.heading{text-align:center;margin-bottom:25px}.heading small{color:#9b702d;letter-spacing:.2em}h2{font:34px Georgia,serif;color:var(--purple);margin:9px 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.product{background:#fff;border:1px solid #eee5d8;overflow:hidden}.product img{width:100%;height:300px;object-fit:cover;display:block}.info{padding:14px}.tag{font-size:9px;letter-spacing:.14em;color:#99733c}h3{font:19px Georgia,serif;color:var(--purple);margin:8px 0}.info p{font-size:12px;color:var(--muted);line-height:1.6}.info strong{font-size:12px;color:#765323}
+.notice{margin:35px 0;background:#f0e8f4;padding:22px;text-align:center;color:#493256;line-height:1.8;font-size:13px}
+footer{background:var(--deep);color:#eee4f2;padding:30px 6%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px}footer b{font:20px Georgia,serif;color:var(--gold);letter-spacing:.12em}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.product img{height:260px}}
+@media(max-width:520px){header{padding:15px 5%}nav{width:100%;overflow:auto}.hero{margin:12px;padding:42px 7%}.grid{gap:10px}.product img{height:220px}.info{padding:10px}h3{font-size:16px}}
+
+.order-btn:hover{background:#51306c!important}
+.order-btn{cursor:pointer}
+
+.category-buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 auto 24px}
+.category-btn{border:1px solid #d8c6e1;background:#fff;color:#32164f;padding:10px 16px;border-radius:22px;cursor:pointer;font-size:13px}
+.category-btn.active,.category-btn:hover{background:#32164f;color:#fff}
+</style></head>
+<body>
+<div class="top">WOMEN'S TRADITIONAL & MODERN COLLECTION • TAMIL NADU DELIVERY</div>
+<header><a class="logo" href="#">DEV DESIGNER<small>FASHION STUDIO</small></a>
+<nav><a href="#home">முகப்பு</a><a href="#collection">Collections</a><a href="#contact">தொடர்பு</a></nav>
+</header>
+<section class="hero" id="home"><div><small>TRADITION MEETS MODERN STYLE</small>
+<h1>Elegance in<br>every thread.</h1>
+<p>பெண்களுக்கான அழகான பாரம்பரிய மற்றும் நவீன ஆடைத் தேர்வுகள். DEV DESIGNER-க்கு வரவேற்கிறோம்.</p>
+<a class="btn" href="#collection">VIEW COLLECTION</a></div></section>
+<main id="collection">
+  <div class="heading">
+    <small>HANDPICKED COLLECTION</small>
+    <h2>Our Products</h2>
+    <p>DEV DESIGNER-இன் அனைத்து ஆடைத் தேர்வுகளும்</p>
+  </div>
+  <div class="order-setup" style="max-width:560px;margin:0 auto 24px;padding:16px;background:#f0e8f4;border:1px solid #dfd0e8;border-radius:8px;text-align:center">
+    <label for="storeWhatsapp" style="display:block;color:#32164f;font-weight:bold;margin-bottom:8px">கடை WhatsApp எண் (நாட்டுக் குறியீட்டுடன்)</label>
+    <input id="storeWhatsapp" type="tel" inputmode="numeric" placeholder="உதா: 919876543210" style="width:100%;padding:12px;border:1px solid #c9b5d5;border-radius:5px;font-size:16px">
+    <small style="display:block;color:#65556d;margin-top:7px">இந்த எண்ணை உள்ளிட்டு, ஒவ்வொரு பொருளின் Order Now பொத்தானையும் பயன்படுத்துங்கள். + அல்லது இடைவெளி இல்லாமல் உள்ளிடவும்.</small>
+  </div>
+  <div id="categoryButtons" class="category-buttons" aria-label="பொருள் வகைகள்"></div>
+  <p id="productStatus" style="text-align:center;color:#766b7b">பொருட்கள் ஏற்றப்படுகின்றன...</p>
+  <div class="grid" id="productGrid"></div>
+<div class="notice"><b>ஆர்டர் & கட்டணம்</b><br>தமிழ்நாட்டிற்குள் டெலிவரி • UPI கட்டணம் மட்டும்<br>
+ஆர்டர் மற்றும் UPI வசதியை செயல்படுத்த கடையின் WhatsApp எண், விலைகள், UPI விவரங்கள் மற்றும் டெலிவரி விதிமுறைகள் சேர்க்கப்பட வேண்டும்.</div>
+</main>
+<footer id="contact"><div><b>DEV DESIGNER</b><p>Women's Traditional & Modern Fashion</p></div><div>WhatsApp: இணைக்கப்பட வேண்டியுள்ளது<br>Delivery: Tamil Nadu only<br>Payment: UPI only (not yet activated)</div><div>© 2026 DEV DESIGNER</div></footer>
+
+<script>
+let allProducts = [];
+let selectedCategory = 'அனைத்தும்';
+
+function renderCategories(){
+  const box=document.getElementById('categoryButtons');
+  const categories=['அனைத்தும்',...new Set(allProducts.map(p=>p.cat).filter(Boolean))];
+  box.innerHTML='';
+  categories.forEach(cat=>{
+    const b=document.createElement('button');
+    b.type='button'; b.className='category-btn'+(cat===selectedCategory?' active':'');
+    b.textContent=cat; b.onclick=()=>{selectedCategory=cat;renderCategories();renderProducts();};
+    box.appendChild(b);
+  });
+}
+function renderProducts(){
+  const grid=document.getElementById('productGrid');
+  const status=document.getElementById('productStatus');
+  const products=selectedCategory==='அனைத்தும்'?allProducts:allProducts.filter(p=>p.cat===selectedCategory);
+  grid.innerHTML='';
+  status.textContent=products.length?`${products.length} பொருட்கள்`:'இந்த வகையில் பொருட்கள் இல்லை.';
+  products.forEach(p=>{
+    const card=document.createElement('article'); card.className='product';
+    const img=document.createElement('img'); img.src=p.image||'images/no-image.png'; img.alt=p.name||'Product'; img.loading='lazy';
+    const info=document.createElement('div'); info.className='info';
+    const tag=document.createElement('span'); tag.className='tag'; tag.textContent=p.cat||'COLLECTION';
+    const h=document.createElement('h3'); h.textContent=p.name||'பொருள்';
+    const desc=document.createElement('p'); desc.textContent='அளவு மற்றும் நிற விவரங்களுக்கு தொடர்புகொள்ளவும்';
+    const price=document.createElement('strong'); price.textContent='₹'+Number(p.price||0).toLocaleString('en-IN');
+    const order=document.createElement('a'); order.href='#'; order.className='order-btn';
+    order.textContent='ORDER NOW'; order.style.cssText='display:inline-block;margin-top:12px;padding:10px 15px;background:#32164f;color:#fff;border-radius:3px;font-size:12px;font-weight:bold;letter-spacing:.06em';
+    order.onclick=function(){return orderProduct(this);};
+    info.append(tag,h,desc,price,order); card.append(img,info); grid.appendChild(card);
+  });
+}
+async function loadProducts(){
+  try{
+    const response=await fetch('products.json?v='+Date.now());
+    if(!response.ok) throw new Error('products.json கிடைக்கவில்லை');
+    allProducts=await response.json();
+    renderCategories();renderProducts();
+  }catch(error){
+    document.getElementById('productStatus').textContent='பொருட்களை ஏற்ற முடியவில்லை. products.json கோப்பை சரிபார்க்கவும்.';
+    console.error(error);
+  }
+}
+function orderProduct(button){
+  const numberInput=document.getElementById('storeWhatsapp');
+  const number=(numberInput.value||'').replace(/\\D/g,'');
+  if(!number || number.length<10){
+    alert('முதலில் உங்கள் கடையின் WhatsApp எண்ணை நாட்டுக் குறியீட்டுடன் உள்ளிடுங்கள். உதா: 919876543210');
+    numberInput.focus(); return false;
+  }
+  const card=button.closest('.product');
+  const name=card.querySelector('h3').textContent.trim();
+  const price=card.querySelector('strong').textContent.trim();
+  const category=card.querySelector('.tag').textContent.trim();
+  const message='வணக்கம் DEV DESIGNER! இந்தப் பொருளை ஆர்டர் செய்ய விரும்புகிறேன்: '+name+' | வகை: '+category+' | விலை: '+price+'. கிடைக்கும் நிலை மற்றும் டெலிவரி விவரங்களைத் தெரிவிக்கவும்.';
+  window.open('https://wa.me/'+number+'?text='+encodeURIComponent(message),'_blank','noopener');
+  return false;
+}
+loadProducts();
+</script>
+\n</body></html>
